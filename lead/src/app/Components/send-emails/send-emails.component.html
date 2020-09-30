@@ -1,0 +1,40 @@
+<body>
+<div fxFill fxLayout="column">
+        <div fxFlex="100%" class="body">
+                <div fxFlexFill fxLayout="row">
+                        <div class="left-menu">
+                            <button mat-button class="btn1">New Email</button><br>
+                            <button mat-button class="btn">Drafts</button><br>
+                            <button mat-button class="btn">Sent</button>
+                        </div>
+                        <div fxFlex class="content">
+                          <div fxLayout="row" class="main" >&nbsp;&nbsp;
+                            <b>New Email</b>
+                          </div>
+                          <div>
+                             
+                              <div class="main-content">
+                                  <h4>Subject</h4>
+                                  <mat-form-field appearance="outline" floatLabel="auto">
+                                        <input matInput id="input" name="input" placeholder="input" />
+                                </mat-form-field>
+                                <h4>Message</h4>
+                                <ejs-richtexteditor [toolbarSettings]='tools'></ejs-richtexteditor><br>
+                                <label for="ccContact" class="Position text-clr" class="cc">Addition contacts(CC) from same accounts
+                                    or your peers
+                                </label><br>
+                                <mat-form-field appearance="outline" floatLabel="auto">
+                                        <input matInput id="ccContact" name="ccContact"/>
+                                </mat-form-field>
+                                <br>
+                                <div class="d-flex justify-content-end">
+                                <button mat-button class="btnSend">Send Email</button>&nbsp;&nbsp;
+                                <button mat-button class="btnDelete">Delete</button>
+                            </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+        </div>
+</div>
+</body>

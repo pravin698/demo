@@ -1,0 +1,156 @@
+<body>
+    <div class="bg-color">
+
+
+        <div class=" ml-4 mb-0 pt-4">
+
+            <div class="d-flex">
+                <!-- left arrow open -->
+                <span id="dot" class="mt-2" routerLink="/contacts/Contacts">
+                    <i class="fa fa-caret-left arrow " style="width: 10px;height: 10px;" aria-hidden="true"></i>
+                </span>
+                <!-- left arrow closed -->
+                <!-- heading name open -->
+                <h1 class="mb-0 ml-2 mt-1">Convert Contact Form</h1>
+                <!-- heading name closed -->
+                <!-- text open -->
+                <h3 class="mt-2 ml-2 mb-0" style="color: #707070;">Swetha Shankar</h3>
+                <!-- text closed -->
+            </div>
+        </div>
+       
+        <div class="d-flex justify-content-around  mt-5">
+            <form class="col-lg-6 p-0" [formGroup]="getscreendataforcontactconvertform" (ngSubmit)="onSave($event)">
+            <!-- <div > -->
+                <div class="d-flex justify-content-between">
+                    <!-- current stage dropdown open -->
+                    <div class="col-lg-5 p-0" >
+                        <label class="clr">Current Stage:</label><br />
+                         <div class="boxsize d-flex"></div> 
+                        <mat-form-field style="background-color: #F5F5F5;" appearance="outline" >
+                            <mat-select formControlName="currentstatusvalue" [(ngModel)]="salesstatusid"  disabled>
+                               <mat-option *ngFor="let salesstatusdropdowndata of getAllsalesStatuslist" [value]="salesstatusid">
+                                {{salesstatusdropdowndata.name}}
+                               </mat-option>
+                            </mat-select>  
+                        </mat-form-field>
+                    </div> 
+                    <!-- current stage dropdown closed -->
+
+                    <!-- convert to dropdown open -->
+                    <div class="col-lg-5  p-0">
+                        <div class="d-flex justify-content-end">
+                            <div class="w-100">
+                                <label class="clr">Convert Stage:</label><br />
+                                <div class="boxsize d-flex"></div> 
+                                 <mat-form-field appearance="outline">
+                                    <mat-select formControlName="updatestatusvalue">
+                                        <div class="d-flex justify-content-around">
+                                            <div class="col-lg-2 p-0">
+                                                <mat-icon class="mt-2 ml-2 suspect-icon">lense</mat-icon>
+                                                <mat-icon class="ml-2 prospect-icon">lense</mat-icon>
+                                                <mat-icon class="ml-2 lead-icon">lense</mat-icon>
+                                                <mat-icon class="ml-2 customer-icon">lense</mat-icon>
+                                               </div>
+                                               <div class="col-lg-10 p-0">
+                                            <mat-option *ngFor="let salesstatusdropdowndata of getAllsalesStatuslist" [value]="salesstatusdropdowndata.lm_sales_status_id">
+                                                {{salesstatusdropdowndata.name}}
+                                              </mat-option>
+                                            </div>
+                                            <!-- <mat-icon class="mt-2 ml-2 suspect-icon">lense</mat-icon>
+                                            <mat-option class="bg-white w-100" value="1">Suspect</mat-option> -->
+                                        </div>
+                                        <!-- <div class="d-flex">
+                                            <mat-icon class="mt-2 ml-2 prospect-icon">lense</mat-icon>
+                                            <mat-option class="bg-white w-100" value="2">Prospect</mat-option>
+                                        </div>
+                                        <div class="d-flex">
+                                            <mat-icon class="mt-2 ml-2 lead-icon">lense</mat-icon>
+                                            <mat-option class="bg-white  w-100" value="3">Lead</mat-option>
+                                        </div>
+                                        <div class="d-flex">
+                                            <mat-icon class="mt-2 ml-2 customer-icon">lense</mat-icon>
+                                            <mat-option class="bg-white  w-100" value="4">Customer</mat-option>
+                                        </div> -->
+                                    </mat-select>
+                                </mat-form-field> 
+
+<!-- //added by shoeb  -->
+<!-- <mat-form-field appearance="outline">
+    <mat-select  formControlName="updatestatusvalue" name="convert_to_sales_satus">
+    
+    </mat-select>
+  </mat-form-field> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- convert to dropdown closed -->
+
+                </div>
+                <!-- textarea open -->
+                <div class="mt-4">
+                    <mat-label class="text-color">Notes</mat-label>
+                    <textarea class="form-control border" formControlName="notesvalue"></textarea>
+                </div>
+                <!-- textarea closed -->
+                <!-- checkbox line open -->
+                <section class="example-section mt-3">
+                    <mat-checkbox class="example-margin text-color">Create a potential for this contact.
+                    </mat-checkbox>
+                    <!-- checkbox line closed -->
+                </section>
+                <!-- button section open -->
+                <div class="d-flex justify-content-center mt-3">
+                    <button mat-stroked-button id="cncl-btn" class="border" (click)="Oncancel($event)">Cancel</button>
+                    <button mat-flat-button id="cnfm-conv-btn" (click)="onSave($event)"> Confirm
+                        Conversion</button>
+                </div>
+                <!-- button section closed -->
+            <!-- </div> -->
+        </form>
+            <div class="col-lg-5 ">
+                <!-- contact Information section open -->
+                <div class="bg-white pb-5 border">
+                    <!-- contact information btn open -->
+                    <button mat-flat-button class="mb-4 mt-1 ml-1" id="cnct-info">Contact
+                        Information</button>
+                    <!-- contact information btn closed -->
+                    <!-- table open -->
+                    <table class="ml-3 mr-1 ">
+                        <tr>
+                            <td class="tbltxt">Contact Owner:</td>
+                            <td><a href="#"><u>Swetha Shankar</u></a></td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Email:</td>
+                            <td>{{emailName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Phone:</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">First Name:</td>
+                            <td>{{firstName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Last Name:</td>
+                            <td>{{lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Linkedin URL:</td>
+                            <td><a href="#"><u>{{linkedin}}</u></a></td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Organization</td>
+                            <td><a href="#"><u>Origo Finance Limited</u></a></td>
+                        </tr>
+                    </table>
+                    <!-- table closed -->
+                </div>
+                <!-- contact Information section closed -->
+            </div>
+        </div>
+    </div>
+</body>

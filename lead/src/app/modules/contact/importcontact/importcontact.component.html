@@ -1,0 +1,148 @@
+<div class="bgcolor">
+    <!-- heading tag -->
+    <h1 id="headertext">Import Contacts</h1>
+    <!-- body class -->
+    <div id="leftpadding">
+        <form class="p-0" [formGroup]="fetchContacttypeandStatus" (ngSubmit)="onImport($event)">
+        <!-- choose file name -->
+        <label class="text-clr">File Name :</label>
+        <br />
+        <mat-form-field class=" border" appearance="outline" floatLabel="auto">
+            <input matInput id="fName" name="fName"  formControlName="file"/>
+        </mat-form-field> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="button" class="btnfile pt-1 pb-8 pl-2 pr-2" mat-stroked-button (click)="fileInput.click()">Choose
+            File</button>
+        <input type="file" hidden mat-stroked-button id="myFile" #fileInput formControlName="file" name="file"
+            accept=".xlsx, .xls, .csv" (change)="readFile($event)">
+            <button type="button" class=" ml-1 pt-1" id="downloadtemplate" (click)="exportTemplateAsExcel()" title="Download Template" mat-flat-button>
+                <i class="fa fa-download  mr-2" id="downloadtemplateicon" aria-hidden="true"></i>
+            </button>
+            <div class="d-flex">
+                <div *ngIf="invalid == 'Valid Format'; else elseBlock">
+                    <div class="formatclr">
+                        <i class="fa fa-check-circle mt-1" style="color:rgb(136, 196, 46);font-size:19px;"
+                            aria-hidden="true"></i>&nbsp;&nbsp; Valid Format
+                    </div>
+                </div>
+    
+                <ng-template #elseBlock *ngIf="invalid == 'Invalid Format' else elseBlock">
+                    <div class="formatclr"><i class="fa fa-times-circle mt-1" style="font-size:19px;color:red"></i>&nbsp;&nbsp;Invalid Format
+                    </div>
+                </ng-template>
+    
+                <ng-template #elseBlock >
+                    <div class="formatclr"></div>
+                </ng-template>
+                
+            </div>
+        <!-- <div class="d-flex">
+            <div *ngIf="invalid; else elseBlock">
+                <div class="formatclr">
+                    <i class="fa fa-check-circle mt-1" style="color:rgb(136, 196, 46);font-size:19px;"
+                        aria-hidden="true"></i>&nbsp;&nbsp; Valid Format
+                </div>
+            </div>
+
+            <ng-template #elseBlock>
+                <div class="formatclr"><i class="fa fa-times-circle mt-1" style="font-size:19px;color:red"></i>&nbsp;&nbsp;Invalid Format
+                </div>
+            </ng-template>
+        </div> -->
+        <!-- choose file name end -->
+        <br />
+        <!-- contact type open -->
+         <div class="d-flex"> 
+    
+           <div class="col-lg-6 p-0">
+                <!-- contact type open -->
+                <label class="text-clr">Contact Type :</label><br />
+                <div class="boxsize d-flex">
+                    <mat-form-field class=" border" appearance="outline">
+                        <mat-select formControlName="contacttypevalue"
+                            (selectionChange)="OnchangeContacttype($event.value)">
+                            <div class="d-flex justify-content-around">
+                                <div class="col-lg-10 p-0">
+                                    <mat-option *ngFor="let contacttypedropdowndata of getAllContactTypelist"
+                                        [value]="contacttypedropdowndata.lm_contact_type_id">
+                                        {{contacttypedropdowndata.name}}
+                                    </mat-option>
+                                </div>
+
+                            </div>
+
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-checkbox class="example-margin" *ngIf="checked == true" [disabled]="true" [(ngModel)]="checked"
+                        readonly>Is DND Applicable?</mat-checkbox>
+                </div>
+           </div>
+                <!-- contact type closed -->
+                <br />
+
+                <div class="rhtside col-lg-6">
+                    <label class="text-clr">Sales Status :</label><br />
+                    <div class="boxsize ">
+                        <mat-form-field class="boxsize border" appearance="outline">
+                            <mat-select formControlName="salesStatusvalue">
+                                <div class="d-flex justify-content-around">
+                                    <div class="col-lg-2 p-0">
+                                        <mat-icon class="mt-2 ml-2 suspect-icon">lense</mat-icon>
+                                        <mat-icon class="ml-2 prospect-icon">lense</mat-icon>
+                                        <mat-icon class="ml-2 lead-icon">lense</mat-icon>
+                                        <mat-icon class="ml-2 customer-icon">lense</mat-icon>
+                                    </div>
+                                    <div class="col-lg-10 p-0">
+                                        <mat-option *ngFor="let salesstatusdropdowndata of getAllsalesStatuslist"
+                                            [value]="salesstatusdropdowndata.lm_sales_status_id">
+                                            {{salesstatusdropdowndata.name}}
+                                        </mat-option>
+                                    </div>
+                                </div>
+
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+         </div>
+                <br />
+                <!-- tag for custom search open -->
+                <label class="text-clr">Tag for Custom Search :</label>
+                <br />
+                <div class="boxsizeplus d-flex">
+                    <mat-form-field class="border" style="border: 1px ;" appearance="outline" floatLabel="auto">
+                        <input matInput id="fName" name="fName" formControlName="tag" />
+                    </mat-form-field>
+                    <div>
+                        <button class="dot border" type="button">
+                            <i class="fa icon" (click)="iconclick()">&#xf067;</i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- textarea in custom search -->
+                <div id="textarea" class="mt-2 border">
+                    <textarea class="form-control " rows="4" formControlName="tagvalues"></textarea>
+                </div>
+                <!-- textarea in custom search closed -->
+                <!-- tag for custom search closed -->
+                <br />
+                <!-- purpose for importing this data open -->
+                <p class="text-clr">Purpose for importing this data :</p>
+                <div id="textareas" class=" border">
+                    <textarea class="form-control" formControlName="purpose" rows="4"></textarea>
+                </div>
+                <!-- purpose for importing this data closed -->
+                <!-- cancel and impor button open -->
+                <div class="btncenter">
+                    <a routerLink="/contacts/Contacts"> <button class="btncancel border" mat-flat-button>Cancel</button></a>&nbsp;&nbsp;&nbsp;
+                    <button class="btnimport border" type="submit" (click)="onImport($event)"
+                        mat-flat-button>Import</button>
+                </div>
+                <!-- cancel and impor button closed -->
+            </form>
+        </div>
+    
+        <!-- body class end -->
+    </div>

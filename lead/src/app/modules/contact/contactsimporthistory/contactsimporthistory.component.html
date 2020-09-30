@@ -1,0 +1,77 @@
+<body>
+  <div class="bg-color">
+
+    <div class="d-flex pt-4">
+      <div class="ml-4">
+        <!-- heading open -->
+        <div class="d-flex pt-2">
+        <span routerLink='/contacts/importSummary' id="dot">
+          <i class="fa fa-caret-left arrow " style="width: 10px;height: 10px;" aria-hidden="true"></i>
+        </span>
+        <h1 class="m-0 ml-2">Contacts Import History</h1>
+      </div>
+        <!-- heading closed -->
+        <!-- <i class="icon-caret-left"  id="left-arrow" ></i> -->
+        <!-- left arrow open -->
+       
+        <!-- left arrow closed -->
+        <!-- <img class="pr-2 pl-2 pt-1 pb-1 left-arrow" routerLink='/Contacts' src="/assets/img/left-arrow.png"> -->
+        <!-- <mat-icon style="border: 1px solid grey; border-radius: 50px;" class="p-0 m-0">arrow_left</mat-icon> -->
+      </div>
+      <!-- go back button open -->
+      <div class="mr-4" id="btn-mar">
+
+        <button id="go-back-btn" class="border" mat-stroked-button routerLink='/contacts/Contacts'><b>Go Back</b></button>
+      </div>
+      <!-- go back button closed -->
+    </div>
+
+    <div class="ml-4 mr-4 mt-3">
+      <!-- table open -->
+      <table mat-table [dataSource]="dataSource" style="box-shadow: none;" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- importeddate  Column -->
+        <ng-container class="text-center" matColumnDef="importeddate">
+          <th mat-header-cell class="text-center  th-text" id="lt-brdr" *matHeaderCellDef> Imported Date </th>
+          <td mat-cell class="border-left text-center" *matCellDef="let element"> {{element.importeddate}} </td>
+        </ng-container>
+
+        <!-- totalcontacts Column -->
+        <ng-container matColumnDef="totalcontacts">
+          <th mat-header-cell *matHeaderCellDef class="text-center th-text"> Total Contacts </th>
+          <td mat-cell class="text-center" *matCellDef="let element"> {{element.totalcontacts}} </td>
+        </ng-container>
+
+        <!-- goodcontacts Column -->
+        <ng-container matColumnDef="goodcontacts">
+          <th mat-header-cell class="text-center th-text" *matHeaderCellDef> Good Contacts <small>(now)</small> </th>
+          <td mat-cell class="text-center" *matCellDef="let element"> {{element.totalcontacts}}
+            <!-- <img id="download-icon"  class="pl-2 pr-2 pt-1 pb-1 ml-4" src="/assets/img/download.png"/> -->
+            <button class="dwn-btn p-0 ml-0" mat-button>
+            <i class="fa fa-arrow-circle-down" style="font-size: 18px;" aria-hidden="true"></i>
+          </button>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="importedby">
+          <th class="text-center th-text" mat-header-cell *matHeaderCellDef> Imported By </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.importedby}} </td>
+        </ng-container>
+
+        <!-- remarks Column -->
+        <ng-container matColumnDef="remarks">
+          <th class="text-center  th-text" id="rt-brdr" mat-header-cell *matHeaderCellDef> Remarks </th>
+          <td mat-cell class="border-right text-center" *matCellDef="let element"> <q>{{element.remarks}} </q> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <!-- table closed -->
+    </div>
+  </div>
+</body>

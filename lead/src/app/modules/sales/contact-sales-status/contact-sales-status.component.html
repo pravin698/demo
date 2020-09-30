@@ -1,0 +1,47 @@
+<div class="body">
+
+    <div class=" pt-4 pl-2">
+        <div >
+            <!-- heading open -->
+            <h1 class="mb-0 pl-3">Contact Sales Status</h1>
+            <!-- heading closed -->
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="col-lg-5">
+            <mat-form-field class="w-100">
+                <mat-label>Search by name/description</mat-label>
+                <input matInput  #input (keyup)="applyFilter($event.target.value)">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+<div class="d-flex justify-content-end">
+                <button id="adnew" mat-flat-button>
+                    
+                    <i class="fa fa-plus mr-2" aria-hidden="true"></i>
+                    <span>Add New</span>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div class="pl-3 pr-3">
+            <table mat-table [dataSource]="dataSource" style="box-shadow: none;" class="mat-elevation-z8 w-100 ">
+
+            
+                
+                <ng-container class="text-center" matColumnDef="name">
+                  <th mat-header-cell class="text-center  th-text" id="lt-brdr" *matHeaderCellDef>Name</th>
+                  <td mat-cell class="border-left text-center"  *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+        
+                
+                <ng-container matColumnDef="description">
+                  <th mat-header-cell *matHeaderCellDef class="text-center th-text " id="rt-brdr"> Description</th>
+                  <td mat-cell class="text-center border-right" (click)="openDialog(element)" *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+</div>

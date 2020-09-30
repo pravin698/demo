@@ -1,0 +1,65 @@
+<div>
+    <div class="d-flex justify-content-between">
+    <div class="col-lg-5">
+        <h4 class="screenTitle mb-0">Update Goals for Sujit Chander for year 2020-2021</h4>
+    </div>
+    <div class="col-lg-2">
+<div class="d-flex justify-content-end">
+    <button mat-dialog-close class="dialogClose bg-white"><i class="fa fa-times" aria-hidden="true"></i></button>
+</div>
+    </div>
+</div>
+</div>
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+<div class="form-container bgclr mar-pad"> 
+    <form (ngSubmit)="onSave()">
+        <div class="col-lg-9 p-0">
+
+            <table mat-table [dataSource]="dataSource" class="tablegoal">
+
+                <ng-container matColumnDef="month">
+                    <th class="  text-center" mat-header-cell *matHeaderCellDef>Month
+                    </th>
+                    <td class=" pl-2" mat-cell *matCellDef="let element">{{element.month}} </td>
+                    <td mat-footer-cell *matFooterCellDef class="p-0 "> Total for the year</td>
+                </ng-container>
+                <ng-container matColumnDef="prospects">
+                    <th class="text-center " mat-header-cell *matHeaderCellDef># of prospects
+                    </th>
+                    <td class=" pl-2 " mat-cell *matCellDef="let element"><input type="text" /></td>
+                    <td mat-footer-cell *matFooterCellDef class="pl-2"> <input type="text" /> </td>
+                </ng-container>
+                <ng-container matColumnDef="leads">
+                    <th class="text-center " mat-header-cell *matHeaderCellDef># of leads
+                    </th>
+                    <td class=" pl-2" mat-cell *matCellDef="let element"><input type="text" /></td>
+                    <td mat-footer-cell class="pl-2" *matFooterCellDef> <input type="text" /> </td>
+                </ng-container>
+                <ng-container matColumnDef="customers">
+                    <th class="text-center " mat-header-cell *matHeaderCellDef># of Customers
+                    </th>
+                    <td class=" pl-2" mat-cell *matCellDef="let element"><input type="text" /></td>
+                    <td mat-footer-cell class="pl-2" *matFooterCellDef> <input type="text" /> </td>
+                </ng-container>
+                <ng-container matColumnDef="revenues">
+                    <th class="text-center" mat-header-cell *matHeaderCellDef># of Revenue
+                    </th>
+                    <td class=" pl-2" mat-cell *matCellDef="let element"><input type="text" /></td>
+                    <td mat-footer-cell class="pl-2" *matFooterCellDef> <input type="text" /> </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+                <tr mat-footer-row *matFooterRowDef="displayedColumns" class="border-top border-dark"></tr>
+            </table>
+        </div>
+        <div>
+                <button mat-flat-button mat-dialog-close class="dialogClose updategoalbtn">Cancel</button>&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button class="updategoalbtn  mt-3">Reset</button>&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button class="updategoalbtn  mt-3">Update Sales Goal</button>
+        </div>
+    </form>
+</div>
+</cdk-virtual-scroll-viewport>

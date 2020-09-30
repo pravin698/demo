@@ -1,0 +1,26 @@
+<div class="bgcolor">
+    <h1 class="head">Feed Types</h1>
+    <div class="pl-3">
+        <div class="d-flex">
+            <div class="col-lg-6 p-0">
+                <mat-label class="clr">Name:</mat-label>
+                <br />
+                <mat-form-field appearance="outline" class="boxsize">
+                    <input matInput type="text" [(ngModel)]='name' id="txtsearchcriteria" />
+                </mat-form-field>
+            </div>
+        </div>
+        <br />
+        <label class="clr">Description :</label>
+        <!-- <div class="textarea border" placeholder="Phone Call/LinkedIn Message/LinkedIn connection/whatsapp/sms" > -->
+            <!-- <textarea class="form-control" placeholder="Phone Call/LinkedIn Message/LinkedIn connection/whatsapp/sms" rows="4"></textarea> -->
+        <!-- </div> -->
+        <div id="textareas" class=" border">
+            <textarea class="form-control" [(ngModel)]='description'  rows="4"></textarea>
+        </div>
+    </div>
+    <div class="btncenter">
+        <button class="btncancel border" mat-flat-button>Cancel</button>&nbsp;&nbsp;&nbsp;
+        <a><button class="btnsave border" (click)="onSave()" mat-flat-button>Save</button></a>
+    </div>
+</div>

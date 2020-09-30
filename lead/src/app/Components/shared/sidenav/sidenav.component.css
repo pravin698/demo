@@ -1,0 +1,44 @@
+mat-sidenav-content {
+    height: 90vh;
+   
+  }
+ 
+ #user-mar
+ {
+  margin-left: 75%;
+ }
+
+ #mail-icon
+ {
+  width:20px;
+  height: 17px;
+ }
+
+ #user-text
+ {
+  margin-left: 35px;
+  color: lightslategray;
+ }
+
+ #down-arrow-icon
+ {
+ 
+  font-size: 33px;
+  
+ }
+
+ #headbg
+ {
+  background-color: white;
+ }
+
+ #sidebg
+ {
+  background-color: white;
+ }
+
+ /* mat-sidenav-content
+ {
+  overflow-y: hidden; 
+  overflow-x: hidden; 
+ } */

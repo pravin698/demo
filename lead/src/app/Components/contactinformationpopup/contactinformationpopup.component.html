@@ -1,0 +1,56 @@
+<div>
+    <div class=" bg-white pb-2 w-80">
+        <div class="clr text-center pt-2 pb-2">
+            <span class=" text-white text-center pt-2 pb-2">
+                Contact Information
+            </span>
+        </div>
+        <div >
+            <table class="ml-3 mr-1 mt-3 w-100">
+                <tr>
+                    <td class="tbltxt pt-2">Contact Owner:</td>
+                    <!-- <td><a href="#"><u>{{firstName}}</u></a></td> -->
+                    <input type="text"  value="Swetha Shankar" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt  pt-2">Email:</td>
+                    <!-- <td>{{emailName}}</td> -->
+                    <input type="text"  [(ngModel)]="data.emailName" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt  pt-2">Phone:</td>
+                    <!-- <td>{{phone}}</td> -->
+                    <input type="text"  [(ngModel)]="data.phone" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt  pt-2">First Name:</td>
+                    <!-- <td>{{firstName}}</td> -->
+                    <input type="text"  [(ngModel)]="data.firstName" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt pt-2">Last Name:</td>
+                    <!-- <td>{{lastName}}</td> -->
+                    <input type="text"  [(ngModel)]="data.lastName" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt pt-2">Linkedin URL:</td>
+                    <!-- <td><a href="#"><u>{{linkedin}}</u></a></td> -->
+                    <input type="text"  [(ngModel)]="data.linkedin" class="mt-3 w-100 input-cs " />
+                </tr>
+                <tr>
+                    <td class="tbltxt pt-2">Organisation</td>
+                    <!-- <td>missing column in table</td> -->
+                    <input type="text"   value="Missing column" class="mt-3 w-100 input-cs " />
+                </tr>
+            </table>
+        </div>
+        <!-- <div class="d-flex justify-content-center mt-3 mb-2"> -->
+        <mat-dialog-actions class="d-flex justify-content-center mt-3 mb-2">
+            <button mat-dialog-close id="cancl" class="border ml-2 mr-1 dialogClose" mat-flat-button>Cancel</button>
+            <button id="save" (click)="save()" class=" ml-1 mr-2" mat-flat-button>Save</button>
+        </mat-dialog-actions>
+        <!-- </div> -->
+
+    </div>
+
+</div>

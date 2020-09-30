@@ -1,0 +1,189 @@
+<body>
+    <div class="bg-color">
+        <form>
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between pt-4">
+                        <div class="col-lg-6 pl-2">
+                            <div class="d-flex justify-content-start">
+                                <div class="d-flex pt-2">
+                                    <span routerLink='/contacts/Contacts' id="dot">
+                                        <i class="fa fa-caret-left arrow "
+                                            style="width: 10px;height: 10px;color: #707070;" aria-hidden="true"></i>
+                                    </span>
+                                    <!-- heading name open -->
+                                    <h1 class="m-0 ml-2">Import Contacts Result Summary</h1>
+                                    <!-- heading name closed -->
+                                    <!-- back icon open -->
+
+                                    <!-- back icon closed -->
+                                    <!-- <p class=" m-0"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- go back button open -->
+                        <div class="col-lg-6">
+                            <div class="d-flex justify-content-end">
+                                <button id="go-back-btn" class="border" mat-stroked-button
+                                    routerLink='/contacts/Contacts'><b>Go
+                                        Back</b></button>
+                            </div>
+                        </div>
+                        <!-- go back button closed-->
+                    </div>
+                    <!-- text open -->
+                    <div class="ml-2 mt-4">
+                        <label id="text-clr">
+                            Congratulations you have successfully imported
+                            <span><b>{{this.ImportedFileDatacount}}</b></span> contacts from the file
+                            <span><b>{{this.filenameofsummary}}</b></span> Here is the summary of the report.
+                        </label>
+                    </div>
+                    <!-- text closed -->
+                </div>
+                <div class="">
+                    <div class="d-flex justify-content-around pl-4 pr-2 ">
+                        <div class="col-md-6 pl-0">
+                            <!-- table open -->
+                            <!-- <table class="ml-3 mr-1 mt-3" class="forTable">
+                                <tr class="fortr">
+                                    <th  id="goodcontact">Category</th>
+                                    <th  id="count">Count</th>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Good Contacts</td>
+                                    <td class="counttd">{{goodcontacts}}</td>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Bad Contacts</td>
+                                    <td class="counttd">{{badcontacts}}</td>
+                                </tr>
+
+                            </table> -->
+                            <table class="ml-3 mr-1 mt-3" class="forTable"  matTableExporter #exporter="matTableExporter">
+                                <tr class="fortr">
+                                    <th  id="goodcontact">Category</th>
+                                    <th  id="count">Count</th>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Good Contacts</td>
+                                    <td class="counttd">{{goodcontacts}}  <div>
+                                        <button class="dwn-btn pt-1 pl-5" mat-button>
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true" (click)="exceldata()"></i>
+                                        </button>
+                                    </div></td>
+                                </tr>
+                             
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Customer</td>
+                                    <td class="counttd">{{goodcontacts}}</td>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Competetion</td>
+                                    <td class="counttd"></td>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Unsubscribed</td>
+                                    <td class="counttd"></td>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">DND</td>
+                                    <td class="counttd"></td>
+                                </tr>
+                                <tr class="fortr bordertlr">
+                                    <td class="categorytd">Others</td>
+                                    <td class="counttd"></td>
+                                </tr>
+                                <!-- <tr lass="fortr bordertlr">
+                                    <td class="categorytd">Others</td>
+                                    <td class="counttd">{{badcontacts}}</td>
+                                </tr> -->
+                            </table>
+                            <!-- table closed -->
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- previous import section open -->
+                            <div class="d-flex justify-content-between p-3 border bg-white">
+                                <div>
+                                    <h3 class="align mb-0">Previous Imports</h3>
+
+                                    <h5 class="aligndown mb-0">Latest import on 22/06/2020</h5>
+
+                                    <h5 class="aligndown mb-0"> By: Shweta Shankar</h5>
+                                </div>
+
+
+                                <div class="pt-4" class="onPreviousImportbuttonclick" (click)="onPreviousImport()">
+
+                                    <i class="fa fa-caret-right" style="color: #707070;" aria-hidden="true"></i>
+
+                                </div>
+
+
+                            </div>
+                            <!-- previous import section closed -->
+                            <br>
+                            <!-- email new clean records phone no open -->
+                            <div class=" p-3 border bg-white">
+                                <div class="d-flex justify-content-between mb-4">
+                                    <div class="d-flex">
+                                        <div> <i class="fa fa-exclamation-circle mt-3" style="color:#C5C510;"
+                                                aria-hidden="true"></i></div>
+                                        <div class="ml-2">
+                                            <h5 class="m-0 " style="color: #C5C510; line-height: 10px;">Duplicate</h5>
+                                            <h3 class="align mb-0">Email ID</h3>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <button class="dwn-btn pt-1" mat-button>
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true" (click)="exceldata()"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <div class="d-flex">
+                                        <div> <i class="fa fa-check-circle mt-1" style="color:rgb(136, 196, 46);"
+                                                aria-hidden="true"></i></div>
+                                        <div class="ml-2">
+
+                                            <h3 class="align mb-0">New Clean Records</h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button class="dwn-btn" mat-button>
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true" (click)="exceldata()"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-4">
+                                    <div class="d-flex">
+                                        <div> <i class="fa fa-exclamation-circle mt-3" style="color:#C5C510;"
+                                                aria-hidden="true"></i></div>
+                                        <div class="ml-2">
+                                            <h5 class="m-0 " style="color: #C5C510; line-height: 10px;">Duplicate</h5>
+                                            <h3 class="align mb-0">Phone Number</h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <!-- <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> -->
+                                        <button class="dwn-btn" mat-button>
+                                            <i class="fa fa-arrow-circle-down" aria-hidden="true" (click)="exceldata()"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- email new clean records phone no closed -->
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>

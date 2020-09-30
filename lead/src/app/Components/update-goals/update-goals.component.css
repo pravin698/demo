@@ -1,0 +1,26 @@
+
+.example-viewport
+ {
+    height: 700px;
+    width: 850px;
+   
+  }
+
+  
+  .mar-pad
+  {
+      padding-bottom: 70px;
+      margin-bottom: 70px;
+  }
+
+  .updategoalbtn
+{
+    border: 1px solid black;
+    background-color: lightslategray;
+    color: black;
+    padding: 5px 35px;
+}
+td
+{
+    border:none
+}

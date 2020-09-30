@@ -1,0 +1,389 @@
+<div class="bgcolor">
+    <div class="d-flex mb-2">
+        <div class="col-lg-5 p-0">
+            <!-- left arrrow and text open -->
+            <div class="d-flex " style="padding-top: 40px;">
+                <span style="font-size: 1rem;"><a routerLink="/contacts/Contacts"><button class="dot border">
+                            <i class="fa fa-caret-left arrow" aria-hidden="true"></i>
+                        </button></a>
+                </span>
+                <h1 class="ml-2">Contact</h1>
+                <h3 class="ml-2 mt-1" style="color: #707070;">Swetha Shankar</h3>
+            </div>
+            <!-- left arrrow and text closed -->
+            <!-- heading open -->
+
+            <!-- heading closed -->
+
+
+
+        </div>
+        <div class="col-lg-6 btnright">
+           
+            <form class="d-flex" [formGroup]="getcurrentsalesstatusid">
+                <!-- conveert to button open -->
+                <button class="btnconvert border" mat-stroked-button placeholder="Convert to"><b>Convert to</b>
+                     <mat-select formControlName="currentcontactsalesstus" (selectionChange)="Onchangestatus($event.value)">
+                        <div [routerLink]="['/contacts/ContactConvertForm',contactid]" >
+                       <div class="d-flex justify-content-around"> 
+                           <div class="col-lg-2 p-0">
+                            <mat-icon class="mt-2 ml-2 suspect-icon">lense</mat-icon>
+                            <mat-icon class="ml-2 prospect-icon">lense</mat-icon>
+                            <mat-icon class="ml-2 lead-icon">lense</mat-icon>
+                            <mat-icon class="ml-2 customer-icon">lense</mat-icon>
+                           </div>
+                           <div class="col-lg-10 p-0"> 
+                            <mat-option *ngFor="let salesstatusdropdowndata of getAllsalesStatuslist" [value]="salesstatusdropdowndata.lm_sales_status_id">
+                                {{salesstatusdropdowndata.name}}
+                              </mat-option>
+                           </div>
+                         </div> 
+                    </div>
+                    </mat-select> 
+
+                </button>
+            
+                <!-- conveert to button closed -->
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- Send email and add notes button open -->
+                <button class="btnsend border" mat-stroked-button><b>Send
+                        Email</b></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btnadd border" mat-stroked-button (click)="onAddNotes()"><b>Add Notes</b></button>
+                <!-- Send email and add notes button closed -->
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="contactmargin">
+            <div class="card contact border">
+                <div class="card-body pt-1">
+                    <div class="row">
+                        <!-- contact Information button open -->
+                        <button class="btncontact" mat-stroked-button>Contact Information</button>
+                        <!-- contact Information button closed -->
+                        <div class="imgrht">
+                            <!-- edit button open -->
+                            <button class="dotcontact border">
+                                <i class='fa edit' (click)="openDialog()" >&#xf044;</i>
+                            </button>
+                            <!-- edit button closed -->
+                        </div>
+                    </div>
+
+                    <table class="ml-3 mr-1 mt-3 ">
+                        <tr>
+                            <td class="tbltxt">Contact Owner:</td>
+                            <td><a href="#"><u>Swetha Shankar</u></a></td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Email:</td>
+                            <td>{{emailName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Phone:</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">First Name:</td>
+                            <td>{{firstName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Last Name:</td>
+                            <td>{{lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Linkedin URL:</td>
+                            <td><a href="#"><u>{{linkedin}}</u></a></td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Organisation</td>
+                            <td>Origo Finance Limited</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+            <!-- Company Details section open -->
+            <div class="card stycompany border">
+                <div class="card-body pt-1">
+                    <div class="row">
+                        <button class="btncompany" mat-stroked-button>Company Details</button>
+                        <!-- company details edit button open -->
+                        <div class="imgriht">
+                            <button class="dotcontact border">
+                                <i class='fa edit' (click)="openCompanyDialog()">&#xf044;</i>
+                            </button>
+                        </div>
+                        <!-- company details edit button closed -->
+                    </div>
+                    <table class="ml-3 mr-1 mt-3 ">
+                        <tr>
+                            <td class="tbltxt pr-5">Company Name:</td>
+                            <td class="tblpadding"><a href="#"><u>{{companyName}}</u></a></td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Industry:</td>
+                            <td>{{industry}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">No. of People:</td>
+                            <td>{{noofpeople}}</td>
+                        </tr>
+                        <tr>
+                            <td class="tbltxt">Revenue in $:</td>
+                            <td>{{revenue}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Company Details section closed -->
+            <br />
+            <!-- Other References section open -->
+            <div class="card styother border">
+                <div class="card-body pt-1">
+                    <div class="row">
+                        <button class="btnother" mat-stroked-button>Other References</button>
+                    </div>
+                    <br /> <br />
+                    <table style="width:100%;">
+                        <tr class="tablehead" > 
+                          <th>Name</th>
+                          <th>Designation</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                        </tr>
+                        <tr class="tablerow">
+                          <td><span class="tblcolor">
+                            <u>{{firstName}}</u></span></td>
+                          <td>{{designation}}</td>
+                          <td><span class="tblcolor">
+                            <u>{{emailName}}</u></span></td>
+                          <td>{{phone}}</td>
+                        </tr>
+                      </table>
+                    <!-- table input closed -->
+                </div>
+            </div>
+            <!-- Other References section closed -->
+        </div>
+        <br />
+        <div class="col-sm-6  tab">
+            <div class="card stytab border">
+                <div class="card-body stycard">
+                    <mat-tab-group animationDuration="0ms">
+                        <!-- Feeds section open -->
+                        <mat-tab label="Feeds">
+                            <br />
+                            <!-- Send Documentation open -->
+                            <div class="form-group row">
+                                <div class="card-body stycardbody">
+                                    <img src="assets/img/calendar.png" class="imgcalender">
+                                </div>
+                                <div>
+                                    <h2 class="align mb-0">Send Documentation</h2>
+                                    <h5 class="aligndown">Scheduled for 20 Jun 2020 &nbsp;&nbsp;&nbsp; Assigned to
+                                        Swetha Shankar</h5>
+                                    <h5 class="aligndn">"Notes on Scheduled for 20 Jun 2020.Notes on Scheduled for
+                                        20 Jun 2020.Notes on Scheduled for 20 Jun 2020."</h5>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br />
+                            <!-- Send Documentation open -->
+                            <div class="form-group row">
+                                <div class="card-body stycardbody1">
+                                    <img src="assets/img/calendar.png" class="imgcalender">
+                                </div>
+                                <div>
+                                    <h2 class="align mb-0">Send Documentation</h2>
+                                    <h5 class="aligndown">Scheduled for 20 Jun 2020 &nbsp;&nbsp;&nbsp; Assigned to
+                                        Swetha Shankar</h5>
+                                    <h5 class="aligndn">"Notes on Scheduled for 20 Jun 2020.Notes on Scheduled for
+                                        20 Jun 2020.Notes on Scheduled for 20 Jun 2020."</h5>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br />
+                            <!-- Send Email open -->
+                            <div class=" row">
+                                <div class="card-body stycardbody2">
+                                    <img src="assets/img/calendar.png" class="imgcalender">
+                                </div>
+                                <div>
+                                    <h2 class="align mb-0">Send Email</h2>
+                                    <h5 class="aligndown">Scheduled for 20 Jun 2020 &nbsp;&nbsp;&nbsp; Assigned to
+                                        Swetha Shankar</h5>
+                                    <div class="form-group row">
+
+                                        <table class="ml-5 mr-1 ">
+                                            <tr class="border-white">
+                                                <td class="tbltxt">Subject:</td>
+                                                <td class="stysub">"Notes on Scheduled for 20 Jun 2020."</td>
+                                            </tr>
+                                            <tr class="border-white">
+                                                <td class="tbltxt">Email:</td>
+                                                <td class="stymail">"Notes on Scheduled for 20 Jun
+                                                    2020.Notes on Scheduled for 20
+                                                    Jun 2020."</td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    <div class="btnsendmargin">
+                                        <button class="btnemail border" mat-stroked-button>Schedule
+                                            Email</button>&nbsp;&nbsp;
+                                        <button class="btnsendemail border" mat-stroked-button>Send Follow up
+                                            Email</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Send Email closed -->
+                            <br />
+                            <!-- Send Documentation open -->
+                            <div class="form-group row">
+                                <div class="card-body stycardbody">
+                                    <img src="assets/img/calendar.png" class="imgcalender">
+                                </div>
+                                <div>
+                                    <h2 class="align mb-0">Send Documentation</h2>
+                                    <h5 class="aligndown">Scheduled for 20 Jun 2020 &nbsp;&nbsp;&nbsp; Assigned to
+                                        Swetha Shankar</h5>
+                                    <h5 class="aligndn">"Notes on Scheduled for 20 Jun 2020.Notes on Scheduled for
+                                        20 Jun 2020.Notes on Scheduled for 20 Jun 2020."</h5>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br />
+                            <!-- Send Documentation open -->
+                            <div class="form-group row">
+                                <div class="card-body stycardbody1">
+                                    <img src="assets/img/calendar.png" class="imgcalender">
+                                </div>
+                                <div>
+                                    <h2 class="align mb-0">Send Documentation</h2>
+                                    <h5 class="aligndown">Scheduled for 20 Jun 2020 &nbsp;&nbsp;&nbsp; Assigned to
+                                        Swetha Shankar</h5>
+                                    <h5 class="aligndn">"Notes on Scheduled for 20 Jun 2020.Notes on Scheduled for
+                                        20 Jun 2020.Notes on Scheduled for 20 Jun 2020."</h5>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                        </mat-tab>
+                        <!-- Feeds section closed -->
+                        <!-- Open Task section open -->
+                        <mat-tab label="Open Tasks">
+                            <div class="row">
+                                <h5 class="opentask"> 4 Out of 6 Task is Pending</h5>
+                                <!-- <mat-checkbox class="ckeckbox"  #checkbox (change)='showOptions($event)' value=''>View All Tasks</mat-checkbox>
+                                <mat-progress-bar mode="determinate" value="40" style="width: 77%;height: 8px;" *ngIf="show"></mat-progress-bar> -->
+
+                            </div>
+                            <br /><br />
+                            <!-- Send Documentation open -->
+                            <div class="d-flex">
+                                <div class="rounda mt-4 mb-0">
+                                    <input type="checkbox" id="checkboxa" />
+                                    <label for="checkboxa"></label>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="mb-0 txt-sm">Document - late 3Days</h5>
+                                    <h2 class="mb-0">Send Documentation</h2>
+                                    <h5 class="mb-0 txt-sm">Scheduled for 20 Jun 2020 &nbsp;&nbsp; Assigned to Swetha
+                                        Shankar
+                                    </h5>
+                                </div>
+                                <div class="mt-4 btnimg">
+                                    <button class="edit-icon border">
+                                        <i class='fa edit'>&#xf044;</i>
+                                    </button>
+                                    <button class="delete-icon ml-3 border">
+                                        <i class="fa fa-trash pb-2" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br /><br />
+                            <!-- Send Documentation open -->
+                            <div class="d-flex">
+                                <div class="roundb mt-4 mb-0">
+                                    <input type="checkbox" id="checkboxb" />
+                                    <label for="checkboxb"></label>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="mb-0 txt-sm">Document - late 3Days</h5>
+                                    <h2 class="mb-0">Send Documentation</h2>
+                                    <h5 class="mb-0 txt-sm">Scheduled for 20 Jun 2020 &nbsp;&nbsp; Assigned to Swetha
+                                        Shankar
+                                    </h5>
+                                </div>
+                                <div class="mt-4 btnimg">
+                                    <button class="edit-icon border">
+                                        <i class='fa edit'>&#xf044;</i>
+                                    </button>
+                                    <button class="delete-icon ml-3 border">
+                                        <i class="fa fa-trash  pb-2" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br /><br />
+                            <!-- Send Documentation open -->
+                            <div class="d-flex">
+                                <div class="roundc mt-4 mb-0">
+                                    <input type="checkbox" id="checkboxc" />
+                                    <label for="checkboxc"></label>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="mb-0 txt-sm">Document - late 3Days</h5>
+                                    <h2 class="mb-0">Send Documentation</h2>
+                                    <h5 class="mb-0 txt-sm">Scheduled for 20 Jun 2020 &nbsp;&nbsp; Assigned to Swetha
+                                        Shankar
+                                    </h5>
+                                </div>
+                                <div class="mt-4 btnimg">
+                                    <button class="edit-icon border">
+                                        <i class='fa edit'>&#xf044;</i>
+                                    </button>
+                                    <button class="delete-icon ml-3 border">
+                                        <i class="fa fa-trash pb-2" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+                            <br /><br />
+                            <!-- Send Documentation open -->
+                            <div class="d-flex">
+                                <div class="roundd mt-4 mb-0">
+                                    <input type="checkbox" id="checkboxd" />
+                                    <label for="checkboxd"></label>
+                                </div>
+                                <div class="ml-4">
+                                    <h5 class="mb-0 txt-sm">Document - late 3Days</h5>
+                                    <h2 class="mb-0">Send Documentation</h2>
+                                    <h5 class="mb-0 txt-sm">Scheduled for 20 Jun 2020 &nbsp;&nbsp; Assigned to Swetha
+                                        Shankar
+                                    </h5>
+                                </div>
+                                <div class="mt-4 btnimg">
+                                    <button class="edit-icon border">
+                                        <i class='fa edit'>&#xf044;</i>
+                                      
+                                    </button>
+                                    <button class="delete-icon ml-3 border">
+                                        <i class="fa fa-trash pb-2" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Send Documentation closed -->
+
+                        </mat-tab>
+                        <!-- Open Task section closed -->
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>

@@ -1,0 +1,71 @@
+<div class="bgcolor">
+    <h1 class="head">Add Notes</h1>
+    <form  [formGroup]="taskControl" (ngSubmit)="saveTask()">
+    <div class="d-flex justify-content-between" id="ADDNotesropdownsandateselect">
+        <div class="col-lg-3 ">
+            <!-- <mat-label class="clr">Types of contact :</mat-label>
+            <br />
+            <mat-form-field appearance="outline" class="boxsize"> -->
+                <!-- <input matInput type="text" id="txtsearchcriteria"  formControlName="name" /> -->
+                <!-- <mat-select disableRipple>
+                    <mat-option class="bg-white w-100" value="option1">Phone Call</mat-option>
+                    <mat-option class="bg-white w-100" value="option1">LinkedIn Message</mat-option>
+                    <mat-option class="bg-white  w-100" value="option1">LinkedIn Connection</mat-option>
+                    <mat-option class="bg-white  w-100" value="option1">WhatsApp/SMS</mat-option>
+                  </mat-select>
+            </mat-form-field> -->
+
+            <mat-label class="clr">Feeds Type :</mat-label>
+            <br />
+    
+            <mat-form-field appearance="outline" class="widthtenrem">
+                <mat-select formControlName="feedTypeData">
+                    <mat-option *ngFor="let feedType of getFeedType" value="feedType.lm_action_types_id"                
+                                 (click)="Onchangefeedstatus(feedType.lm_action_types_id)"                   
+                    >{{feedType.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+        </div>
+
+        <div class="col-lg-3">
+          
+            <mat-label class="clr">Tasks :</mat-label>
+            <br />
+            
+            <mat-form-field appearance="outline" class="widthtenrem">
+                <mat-select formControlName="getaskData">
+                    <mat-option *ngFor="let getTsk of getTask" value="getTsk.lm_tasks_id"                
+                    (click)="Onchangetaskstatus(getTsk.lm_tasks_id)"                
+                    >{{getTsk.name}}</mat-option>
+                
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+              <mat-label class="clr">Communicated On :</mat-label>
+            <br />
+            <mat-form-field appearance="outline" class="widthtenrem">
+                <!-- <mat-label>Date</mat-label> -->
+                <input matInput [matDatepicker]="picker" formControlName="dueDate" class="color" 
+                [min]="taskControl.controls.dueDate.value" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker" class="color"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="ml-3" style="width: 95%;">
+        <label class="clr">Description :</label>
+        <!-- <div class="textarea border">
+            <textarea class="form-control " rows="4"></textarea>
+        </div> -->
+        <ejs-richtexteditor height ='280px' [toolbarSettings]='tools' formControlName="description"></ejs-richtexteditor><br>
+    </div>
+   
+    <div class="d-flex  justify-content-center mt-5">
+        <button class="btncancel border" mat-stroked-button>Cancel</button>&nbsp;&nbsp;&nbsp;
+        <button class="btnsave border" mat-stroked-button >Save</button>
+    </div>
+    </form>
+</div>

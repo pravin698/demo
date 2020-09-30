@@ -1,0 +1,348 @@
+<body class="bg">
+        <form [formGroup]="createContact" class="">
+                <div class="">
+                        <div class="d-flex justify-content-between pt-4">
+                                <div class="col-md-4">
+                                        <!-- heading open -->
+                                        <h1>Create Contact</h1>
+                                        <!-- heading closed -->
+                                </div>
+                                <div class="col-lg-4">
+                                        <!-- preview and save button open -->
+                                        <div class="d-flex">
+                                                <button id="prw-btn" class=" border" mat-flat-button
+                                                        (click)="onPreview()">Preview</button>
+                                                <button class="save-btn" mat-flat-button
+                                                        (click)="onSave(createContact)">Save</button>
+                                        </div>
+                                        <!-- preview and save button closed -->
+                                </div>
+                        </div>
+                </div>
+                <div class="container-fluid">
+                        <!-- Contact Information section open -->
+                        <div class="d-flex flex-row"><span class="text-clr">Contact Information</span>
+                                <hr width="87%" style="border: 0.5px dashed #C0C0C0 ;margin:10px 0px 10px 5px"
+                                        color="#FFFFFF" size="3">
+                        </div>
+                        <br>
+                        <div class="container-fluid">
+                                <div class="row mb-4">
+                                        <div class="col-md-4 form-group">
+                                                <label for="lm_contact_id" class="Position text-clr"><span
+                                                                class="text-danger mr-1">*</span>Contact
+                                                        Owner</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input  id="lm_contact_id" class="allinput"
+                                                                formControlName="lm_contact_id" />
+
+                                                        <div class="text-danger"
+                                                                *ngIf="createContact.get('lm_contact_id').dirty || createContact.get('lm_contact_id').touched">
+                                                                Id required
+                                                </div>
+                                                <!-- </mat-form-field> -->
+
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                                <label for="first_name" class="Position text-clr"><span
+                                                                class="text-danger mr-1">*</span>First Name</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input  id="first_name" class="allinput"  formControlName="first_name"
+                                                                required />
+
+                                                        <!-- <mat-error>
+                                                                <span
+                                                                        *ngIf="createContact.get('first_name').hasError('required')">
+                                                                        First name required</span>
+                                                        </mat-error> -->
+                                                        <div class="text-danger" *ngIf="(createContact.get('first_name').dirty || createContact.get('first_name').touched)">
+                                                                First name is required
+                                                </div>
+                                                        <div class="text-danger" *ngIf="!(createContact.get('first_name').dirty || createContact.get('first_name').touched) && createContact.get('first_name').hasError('pattern')">
+                                                                Only character allowed
+                                                        </div>
+                                                <!-- </mat-form-field> -->
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                                <label for="last_name" class="Position text-clr"><span
+                                                                class="mr-1">*</span>Last Name</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input  id="last_name" class="allinput" formControlName="last_name"
+                                                                required />
+
+                                                        <div class="text-danger"
+                                                                *ngIf="(createContact.get('last_name').dirty || createContact.get('last_name').touched)">
+                                                                Last name is required
+                                                        </div>
+                                                        <div class="text-danger"
+                                                                *ngIf="!(createContact.get('last_name').dirty || createContact.get('last_name').touched) && createContact.get('last_name').hasError('pattern')">
+                                                                Only character allowed
+                                                </div>
+                                                <!-- </mat-form-field> -->
+                                        </div>
+                                </div>
+
+                                <fieldset formGroupName="child">
+                                        <div class="row mb-4">
+                                                <div class="col-md-4 form-group" required>
+                                                        <label for="phone_no" class="Position text-clr"><span
+                                                                        class="text-danger mr-1">*</span>Mobile
+                                                                Number</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input  id="phone_no" maxlength="10" class="allinput"
+                                                                        formControlName="phone_no"
+                                                                        [pattern]="mobilePattern" />
+                                                                <div class=" text-danger"
+                                                                        *ngIf="createContact['controls'].child['controls'].phone_no.errors?.pattern">
+                                                                         Mobile no should be 10 digits 
+                                                        </div>
+                                                        <!-- </mat-form-field> -->
+                                                        <!-- <div *ngIf="ph.errors?.pattern">
+                                                                invalid                  
+                                                          </div>  -->
+                                                        <!-- <div class="mb-4 text-danger"
+                                                                *ngIf="createContact['controls'].child['controls'].phone_no.errors?.pattern">
+                                                                <h5> Mobile no should be 10 digits </h5>
+                                                        </div> -->
+                                                </div>
+                                                <div class="col-md-4 form-group" required>
+
+                                                        <label for="email_id " class="Position text-clr"><span
+                                                                        class="text-danger mr-1">*</span>Email
+                                                                ID</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input  id="email_id" formControlName="email_id"
+                                                                class="allinput"   [pattern]="emailPattern" />
+
+                                                        <!-- </mat-form-field> -->
+                                                        <div class="mb-4 text-danger"
+                                                                *ngIf="createContact['controls'].child['controls'].email_id.errors?.pattern">
+                                                                 Enter valid email id 
+                                                        </div>
+                                                </div>
+                                                <div class="col-md-4 form-group" required>
+
+                                                        <label for="linkedin_url" class="Position text-clr"><span
+                                                                        class="text-danger mr-1">*</span>Linkedin
+                                                                URL</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input  id="linkedin_url"
+                                                                class="allinput"     formControlName="linkedin_url"
+                                                                        [pattern]="linkedinPattern" />
+
+                                                        <!-- </mat-form-field> -->
+                                                        <div class="mb-4 text-danger"
+                                                                *ngIf="createContact['controls'].child['controls'].linkedin_url.errors?.pattern">
+                                                                 Enter valid LinkedIn URL
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                </fieldset>
+
+                        </div>
+                        <div class="container-fluid">
+                                <div class="mb-4"
+                                        *ngIf="createContact.get('child')?.errors?.atLeastOneRequired && (createContact.get('child').hasError || createContact.get('child').touched)">
+                                        <h4 id="mandatory">
+                                                <i>{{createContact.get('child')?.errors?.atLeastOneRequired.text}}</i>
+                                        </h4>
+                                </div>
+                        </div>
+
+                        <div class="container-fluid">
+                                <div class="row mb-4">
+                                        <div class="col-md-4 form-group">
+
+                                                <label for="organisation" class="Position text-clr"><span
+                                                                class="text-danger mr-1">*</span>Organisation</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input class="allinput" id="organisation"
+                                                                formControlName="organisation" />
+
+                                                        <div class="text-danger"
+                                                                        *ngIf="(createContact.get('organisation').dirty || createContact.get('organisation').touched)">
+                                                                        organisation id required
+                                                </div>
+                                                <!-- </mat-form-field> -->
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                                <label for="designation" class="Position text-clr">Designation</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input class="allinput"  id="designation"
+                                                                formControlName="designation" />
+                                                <!-- </mat-form-field> -->
+                                        </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                        <div class="col-md-4 form-group">
+                                                <label for="skype_id" class="Position text-clr">Skype ID</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input class="allinput" id="skype_id" formControlName="skype_id"
+                                                                [pattern]="skypePattern" />
+                                                <!-- </mat-form-field> -->
+                                                <div class="mb-4 text-danger"
+                                                        *ngIf="createContact['controls'].skype_id.errors?.pattern">
+                                                         Enter valid skype id
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                                <label for="alt_phone_no" class="Position text-clr">Alternate No</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input class="allinput" maxlength="10" id="alt_phone_no" formControlName="alt_phone_no"
+                                                                [pattern]="mobilePattern" />
+                                                <!-- </mat-form-field> -->
+                                                <div class="mb-4 text-danger"
+                                                        *ngIf="createContact['controls'].alt_phone_no.errors?.pattern">
+                                                        Mobile no should be 10 digits number
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                                <label for="alt_email_id" class="Position text-clr">Secondary
+                                                        Email</label>
+                                                <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                        <input class="allinput" id="alt_email_id" formControlName="alt_email_id"
+                                                                [pattern]="emailPattern" nullValue />
+                                                <!-- </mat-form-field> -->
+                                                <div class="mb-4 text-danger"
+                                                        *ngIf="createContact['controls'].alt_email_id.errors?.pattern">
+                                                        <h5> Enter valid email id</h5>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="">
+                                <div class="d-flex flex-row mb-4"><span class="text-clr">Address Information</span>
+                                        <hr width="87%" style="border: 0.5px dashed #C0C0C0 ;margin:10px 0px 10px 5px"
+                                                color="#FFFFFF" size="3">
+                                </div>
+                                <div class="container-fluid">
+                                        <div class="row mb-4">
+                                                <div class="col-md-12 form-group">
+                                                        <label for="address" class="Position text-clr">Address</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"
+                                                                style="width: 100%"> -->
+                                                                <input  id="address"  formControlName="address"
+                                                                        nullValue />
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                                <div class="col-md-4 form-group">
+                                                        <label for="city" class="Position text-clr">City</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input class="allinput" id="city" formControlName="city"
+                                                                        nullValue />
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                                <div class="col-md-4 form-group">
+                                                        <label for="state" class="Position text-clr">State</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input class="allinput" id="state" formControlName="state"
+                                                                        nullValue />
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                                <div class="col-md-4 form-group">
+                                                        <label for="country" class="Position text-clr">Country</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input class="allinput" id="country" formControlName="country"
+                                                                        nullValue />
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                                <div class="col-md-4 mt-4 form-group">
+                                                        <label for="postal_code"
+                                                                class="Position text-clr">ZipCode</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <input class="allinput" id="postal_code"
+                                                                        formControlName="postal_code" nullValue />
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- Contact Information section closed -->
+                        <!-- Other Information section open -->
+                        <div class="">
+                                <div class="d-flex flex-row mb-4"><span class="text-clr">Other Information</span>
+                                        <hr width="88%" style="border: 0.5px dashed #C0C0C0 ;margin:10px 0px 10px 5px"
+                                                color="#FFFFFF" size="3">
+                                </div>
+                                <div class="container-fluid">
+                                        <div class="row mb-4">
+                                                <div class="col-md-4 form-group">
+                                                        <label for="contactStatus" class="text-clr Position"><span
+                                                                        class="text-danger mr-1">*</span>Contact
+                                                                Status</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <select id="contactStatus" class="allinput"
+                                                                        placeholder="Select Sales Status"
+                                                                        formControlName="contactStatus">
+                                                                        <!-- <mat-option value="">--select--</mat-option> -->
+                                                                        <option *ngFor="let saleStatus of status"
+                                                                                [value]="saleStatus">
+                                                                                {{saleStatus.name}} </option>
+
+                                                                </select>
+
+
+                                                                <div class="text-danger"
+                                                                                *ngIf="(createContact.get('contactStatus').dirty || createContact.get('contactStatus').touched)">
+                                                                                contact status required
+                                                        </div>
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <label for="prdService" class="Position text-clr">Product
+                                                                Service
+                                                                Desired</label>
+                                                        <!-- <mat-form-field appearance="none" floatLabel="auto"> -->
+                                                                <select id="prdService"
+                                                                class="allinput"
+                                                                        placeholder="Select Services"
+                                                                        formControlName="prdService">
+                                                                        <option *ngFor="let products of Product"
+                                                                                [value]="products">
+                                                                                {{products.name}} </option>
+                                                                </select>
+                                                        <!-- </mat-form-field> -->
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- Other Information section closed -->
+                        <!-- Description section open -->
+                        <div class="">
+                                <div class="d-flex flex-row mb-4"><span class="text-clr"> Description</span>
+                                        <hr width="91.5%" style="border: 0.5px dashed #C0C0C0 ;margin:10px 0px 10px 5px"
+                                                color="#FFFFFF" size="3">
+                                </div>
+                                <div class="col-md-12 desc form-group">
+                                        <label for="description" class="Position text-clr">Write a Brief</label>
+                                        <textarea class="allinput" id="description" class="pr-0 w-100 bg-white"
+                                                formControlName="description" nullValue>
+                                        <!-- name="desc"> -->
+                                </textarea>
+
+                                </div>
+                        </div>
+                        <!-- Description section closed -->
+                        <!-- reset and save button open -->
+                        <div class="">
+                                <div class="d-flex justify-content-end pt-4 pb-4">
+
+                                        <div class="col-lg-4 p-0">
+                                                <div class="d-flex pt-4">
+                                                        <button id="rst-btn" class=" border" mat-flat-button
+                                                                (click)="onReset()">Reset</button>
+                                                        <button class="save-btn " mat-flat-button
+                                                                (click)="onSave(createContact)">Save</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- reset and save button closed -->
+                </div>
+        </form>
+</body>

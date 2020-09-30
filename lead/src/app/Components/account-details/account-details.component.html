@@ -1,0 +1,89 @@
+<div class="bgcolor">
+    <!-- heading tag -->
+    <h1 id="headertext">Account Details</h1>
+    <div id="leftpadding">
+        <div class="d-flex ">
+        <div class="col-md-6 rightpadding">
+
+
+            <label class="text-clr">Account Name :</label><br />
+            <mat-form-field appearance="outline" class="boxsize">
+                <input matInput type="text" id="txtsearchcriteria" />
+            </mat-form-field>
+            <br /><br />
+            <label class="text-clr">Industry Type :</label><br />
+            <div class="boxsize d-flex">
+                <mat-form-field appearance="outline">
+                    <mat-select>
+                        <div class="d-flex">
+                            <!-- <mat-icon class="mt-2 ml-2 suspect-icon">lense</mat-icon> -->
+                            <mat-option class="bg-white w-100" value="option1">Suspect</mat-option>
+                        </div>
+                        <div class="d-flex">
+                            <!-- <mat-icon class="mt-2 ml-2 prospect-icon">lense</mat-icon> -->
+                            <mat-option class="bg-white w-100" value="option1">Prospect</mat-option>
+                        </div>
+                        <div class="d-flex">
+                            <!-- <mat-icon class="mt-2 ml-2 lead-icon">lense</mat-icon> -->
+                            <mat-option class="bg-white  w-100" value="option1">Lead</mat-option>
+                        </div>
+                        <div class="d-flex">
+                            <!-- <mat-icon class="mt-2 ml-2 customer-icon">lense</mat-icon> -->
+                            <mat-option class="bg-white  w-100" value="option1">Customer</mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <br />
+            <label class="text-clr">Account Owned By :</label><br />
+            <mat-form-field appearance="outline" class="boxsize">
+                <input matInput type="text" id="txtsearchcriteria" />
+            </mat-form-field>
+            <br /><br />
+            <label class="text-clr">Address :</label><br />
+            <div class="textarea border">
+                <textarea class="form-control " rows="4"></textarea>
+            </div>
+            <br />
+            <label class="text-clr">Description :</label><br />
+            <div class="textarea border">
+                <textarea class="form-control " rows="4"></textarea>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-6 lrpadding">
+            <div class="card stytab border">
+                <div class="card-body stycard">
+                    <mat-tab-group style="min-width: 60px;" animationDuration="0ms">
+                        <!-- Feeds section open -->
+                        <mat-tab  label="Contacts">
+                        
+                        </mat-tab>
+                        <!-- Feeds section closed -->
+                        <!-- Open Task section open -->
+                        <mat-tab label="Potentials">
+                          
+                      
+                        </mat-tab>
+                        <!-- Open Task section closed -->
+                        <mat-tab label="Feeds">
+                          
+                      
+                        </mat-tab>
+                        <mat-tab label="Open Tasks">
+                          
+                      
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+           
+        </div></div>
+        <div class="btncenter">
+            <button class="btncancel border" mat-stroked-button>Cancel</button>&nbsp;&nbsp;&nbsp;
+            <button class="btnsave border" mat-stroked-button>Save</button>
+        </div>
+    </div>
+</div>

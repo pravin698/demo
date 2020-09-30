@@ -1,0 +1,104 @@
+.bgcolor{
+    background-color: #EFF4F580;
+    height: 990px;
+}
+#headertext{
+    padding-top: 25px;
+    padding-left: 20px;
+    color: #000000;
+}
+#leftpadding{
+    padding-left: 20px;
+}
+.text-clr{
+    color: #707070;
+}
+.btncenter{
+    margin-top: 70px;
+    margin-left: 420px;
+}
+.btncancel{
+    border: 0.25px solid #707070;
+    background-color: #FFFFFF;
+    color:#707070;
+    border-radius: 35px;
+    padding: 8px 50px 8px 50px;
+}
+.btnsave{
+    border:1px solid #178DDC;
+    background-color: #178DDC;
+    color:#FFFFFF;
+    border-radius: 40px;
+    padding: 8px 55px 8px 55px;
+}
+.textarea{
+    width:90%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.boxsize{
+    width:50%;
+}
+.mat-form-field {
+    width: 60%;
+    height: 7%;background-color: #FFFFFF;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.4em 0 0.8em 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap {
+    border-width: 0.5px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0em !important;
+}
+
+/* // input outline color */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(0, 0, 0, .2) !important;
+    border-radius: 5px;
+}
+/* // mat-input focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    box-shadow: none;
+    border-radius: 5px;
+    text-shadow: none;
+}
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0em;
+}
+.lrpadding{
+    padding-left: 0px;
+    padding-right: 0px;
+  
+}
+.stytab{
+height: 100%;
+}
+.rightpadding{
+    padding-right: 0px;
+}
+.mat-tab-label {
+    height: 48px;
+    padding: 0px;
+}
+
+/* ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 66px!important;
+ 
+   } */
+   ::ng-deep.mat-tab-link,  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 140px!important;
+}

@@ -1,0 +1,101 @@
+<body class="bgColor">
+    <form style="margin-left: 2%">
+        <div class="container-fluid">
+            <div class="d-flex pt-4" >
+                <div class="col-md-5">
+                    <label for="accName">Account Name:</label>&nbsp;&nbsp;
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <input matInput id="accName" name="accName" />
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-5">
+                    <label for="leadName">Lead Name:</label>&nbsp;&nbsp;
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <input matInput id="leadName" name="leadName" />
+                    </mat-form-field>
+                </div>
+            </div><br>
+            <div class="justify-content-start ml-3">
+                <label for="potentialName">Potential Name:</label><br>
+                <mat-form-field appearance="outline" floatLabel="auto" style="width: 30%">
+                    <input matInput id="potential" name="potential" />
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="justify-content-start ml-3">
+                <label for="potentialDesc">Potential Description:</label><br>
+                <mat-form-field appearance="outline" floatLabel="auto" style="width: 95%">
+                    <input matInput id="desc" name="desc" />
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="d-flex pt-6">
+                <div class="col-md-6 stg">
+                    <label for="stg">Stage</label><br>
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <mat-select id="stage" name="stage">
+                            <mat-option>AA</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="winning">Probability of winning</label><br>
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <input matInput id="pOfWinning" name="pOfWinning" />
+                    </mat-form-field>
+
+                </div>
+            </div>
+            <br>
+            <div class="d-flex pt-6">
+                <div class="col-md-6">
+                    <label for="amt">Total Amount</label><br>
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <input matInput id="total" name="total" />
+                    </mat-form-field>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="pvalue">Current Potential Value</label><br>
+                    <mat-form-field appearance="outline" floatLabel="auto">
+                        <input matInput id="potentialVal" name="potentialVal" />
+                    </mat-form-field>
+
+                </div>
+            </div>
+            <br>
+            <div class="justify-content-start ml-3">
+                <div class="d-flex pt-6">    
+                <label for="aItems">Action Items</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-plus-circle" (click)="addItems()" aria-hidden="true"></i>
+            </div><br>
+                    <!-- <mat-form-field appearance="outline" floatLabel="auto" style="width: 95%">
+                            <input matInput id="items1" name="items1"  />
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" floatLabel="auto" style="width: 95%">
+                            <input matInput id="items2" name="items2" />
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" floatLabel="auto" style="width: 95%">
+                            <input matInput id="items3" name="items3" />
+                    </mat-form-field> -->
+                    <form [formGroup]="itemsForm">
+                    <table formArrayName="items" style="width: 95%">
+                        <tr *ngFor="let quantity of items().controls; let i=index" [formGroupName]="i">
+                            <td>
+                                <input type="text" formControlName="itm" class="form-control"> 
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="d-flex pt-4 justify-content-start ml-3">
+                    <button class="btnCancel" mat-raised-button>Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btnSave justify-content-start ml-4" mat-raised-button mat-raised-button>Save</button>
+            </div>
+        </div>
+    </form>
+</body>

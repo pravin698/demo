@@ -1,0 +1,107 @@
+.bgcolor{
+    background-color: #EFF4F580;
+    overflow: hidden;
+}
+.head{
+    padding-top: 20px;
+    padding-left: 15px;
+}
+.clr{
+    color: #707070;
+}
+.btncenter{
+    margin-top: 30px;
+    margin-left: 420px;
+}
+.btncancel{
+    border: 0.25px solid #707070;
+    background-color: #FFFFFF;
+    color:#707070;
+    border-radius: 35px;
+    padding: 8px 50px 8px 50px;
+}
+.btnsave{
+    border:1px solid #178DDC;
+    background-color: #178DDC;
+    color:#FFFFFF;
+    border-radius: 40px;
+    padding: 8px 55px 8px 55px;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+    color: rgba(0, 0, 0, .2) !important;
+    opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: rgba(0, 0, 0, .2) !important;
+    opacity: 1;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+    color: rgba(0, 0, 0, .2) !important;
+  }
+  .boxsize{
+      width:75%;
+      /* background-color: #FFFFFF; */
+  }
+  .floatright{
+      margin-left: 30px;
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 80%;
+    height: 51%;
+}
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 5em;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.4em 0 0.8em 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap {
+    border-width: 0.5px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0em !important;
+}
+/* // input outline color */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(0, 0, 0, .2) !important;
+    border-radius: 5px;background-color: #FFFFFF;
+}
+/* // mat-input focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    box-shadow: none;
+    border-radius: 5px;
+    text-shadow: none;
+}
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 1em;
+}
+.datefield{
+  width: 20%;
+}
+.textarea{
+    width:65%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.widthtenrem{
+    width:37%;
+    height: 50%;
+}

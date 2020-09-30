@@ -1,0 +1,31 @@
+.input-cs
+{
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+}
+
+#cancl
+{
+    border-radius: 50px;
+    background-color: white;
+    color: #707070;
+    padding: 5px 60px ;
+}
+
+#save
+{
+    border-radius: 50px;
+    background-color: #178DDC;
+    color: white;
+    border: 1px solid #178DDC;
+    padding: 5px 60px ;
+}
+
+.clr
+{
+    background-color: #178DDC;
+}
+

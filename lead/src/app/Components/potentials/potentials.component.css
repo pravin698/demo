@@ -1,0 +1,52 @@
+
+.mat-form-field {
+    width: 50%;
+    /* background-color: white; */
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.2em 0 0.2em 0 !important;
+    
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap {
+    border-width: 0.5px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0em !important;
+}
+
+/* // input outline color */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(0, 0, 0, .2) !important;
+    border-radius: 5px;
+}
+/* // mat-input focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    box-shadow: none;
+    border-radius: 5px;
+    text-shadow: none;
+}
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0em;
+}
+
+.fa-plus-circle{
+    font-size: 120%;
+}
+.btnCancel,.btnSave{
+    width:10%;
+    background-color: rgb(184, 181, 181);
+    color: black !important;
+    border-color: black !important;
+}
+.stg{
+    width:20% !important;
+}
+/* .bgColor{
+    background-color: aqua;
+} */
